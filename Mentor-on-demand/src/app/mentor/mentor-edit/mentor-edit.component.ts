@@ -69,11 +69,13 @@ export class MentorEditComponent implements OnInit {
     return this.skillForm.get('yearsExperience');
   }
   addSkill(formData: any) {
-    let skill: Skill = this.skillList.find(skill => skill.name == formData["skill"]);
-    let yearsExperience: number = formData["yearsExperience"];
-    let selfRating: number = formData["selfRating"];
-    this.skillDetails = { mentor:}
-    this.trainingService.addMentorSkillAfterLogin(skill, this.authService.username, yearsExperience, selfRating).subscribe(
+    this.skillDetails = {
+      mentor: { active: null, linkedinUrl: null, yearsOfExperience: null, user: this.user, id: null },
+      skill: this.skillList.find(skill => skill.name == formData["skill"]),
+      self_rating: formData["selfRating"],
+      yearsOfExperience: formData["yearsExperience"]
+    }
+    this.trainingService.addMentorSkillAfterLogin(this.skillDetails).subscribe(
       (data) => {
         window.alert("Your details are submitted successfully");
         this.buildSkillForm();

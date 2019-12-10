@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Skill } from '../Model/Skill';
+import { SkillDetails } from '../Model/SkillDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -36,9 +37,10 @@ export class TrainingService {
     return this.http.post(this.trainingURL + "editStatus/", training, { headers });
   }
 
-  addMentorSkillAfterLogin(skill: Skill, userName: string, yearsExperience: number, selfRating: number): Observable<any> {
+  addMentorSkillAfterLogin(skill: SkillDetails): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getToken());
-    return this.http.post(this.trainingURL + "addSkillLogin/" + userName + "/" + yearsExperience + "/" + selfRating + "/", skill, { headers });
+    console.log(this.trainingURL + "addSkillLogin/")
+    return this.http.post<SkillDetails>(this.trainingURL + "addSkillLogin/", skill, { headers });
   }
 }
