@@ -1,0 +1,114 @@
+<div class="container d-flex justify-content-center">
+    <div class="col-md-12 mt-6">
+        <div class="card mt-5">
+            <!-- FORM -->
+            <form class="m-3" [formGroup]="signUpForm" (submit)="addUser()">
+                <div class="row">
+                    <h2 class="col-lg-12 mb-4">Sign Up</h2>
+                    <div class="col-lg-11 alert alert-danger mx-3" *ngIf="userCreated == false">
+                        User already exists.
+                    </div>
+                    <div class="col-lg-11 alert alert-success mx-3" *ngIf="userCreated == true">
+                        {{this.error}}
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="firstname">Fistname</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter First Name"
+                            formControlName="firstname" id="firstname">
+                        <div class="text-danger"
+                            *ngIf="firstname.invalid && firstname.errors?.required && firstname.touched">First Name is
+                            required</div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" type="text" placeholder="Enter Last Name"
+                            formControlName="lastname" id="lastname" />
+                        <div class="text-danger"
+                            *ngIf="lastname.invalid && lastname.errors?.required && lastname.touched">Last Name is
+                            required</div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="username">Email (Username)</label>
+                        <input type="email" class="col-lg-12 form-control mb-2 mr-sm-2" placeholder="Enter Username"
+                            formControlName="username" id="username">
+                        <div class="text-danger"
+                            *ngIf="username.invalid && username.errors?.required && username.touched">
+                            Email Id is required
+                        </div>
+                        <div class="text-danger" *ngIf="username.errors?.email">Please Enter A Valid Email</div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="contactNumberNumber">Contact</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" type="text"
+                            placeholder="Enter Phone Number" formControlName="contactNumber" id="contactNumberNumber" />
+                        <div class="text-danger" *ngIf="contactNumber.invalid && contactNumber.errors?.required && contactNumber.touched || 
+                            (contactNumber.errors?.maxlength || contactNumber.errors?.minlength)">
+                            Contact Number is mandatory and must be 10 digits</div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <label for="regCode">Registration Code</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" type="text"
+                            placeholder="Enter Registration Code" formControlName="regCode" id="regCode" />
+                        <div class="text-danger" *ngIf="regCode.invalid && regCode.errors?.required && regCode.touched">
+                            Registration Code is required.</div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="role">Register Yourself As:</label>
+                        <select class="form-control" id="role" formControlName="role">
+                            <option disabled selected value>Choose A Role</option>
+                            <option value="Student" selected>Student</option>
+                            <option value="Mentor">Mentor</option>
+                        </select>
+                        <div class="text-danger" *ngIf="role.invalid && role.errors?.required && role.touched"> Role is
+                            required
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control mb-2 mr-sm-2" placeholder="Enter Password"
+                            formControlName="password" id="password">
+                        <div class="text-danger"
+                            *ngIf="password.invalid && password.errors?.required && password.touched">Password is
+                            required</div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control mb-2 mr-sm-2" placeholder="Enter Confirm Password"
+                            formControlName="confirmPassword" id="confirmPassword">
+                        <div class="text-danger"
+                            *ngIf="confirmPassword.invalid && confirmPassword.errors?.required && confirmPassword.touched">
+                            Confirm the Password</div>
+                        <div class="text-danger" *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">Password
+                            and Confirm Password do not match</div>
+                    </div>
+
+
+                    <div class="col-lg-12 mt-3" *ngIf="!isMentor">
+                        <button type="submit" class="btn add-to-favorites float-left"
+                            [disabled]="!signUpForm.valid">Sign Up</button>
+                    </div>
+
+
+                    <form [formGroup]="mentorForm" (submit)="addMentor()" *ngIf="isMentor">
+
+                        <div class="col-lg-12 mt-3">
+                            <button type="submit" class="btn add-to-favorites float-left"
+                                [disabled]="!mentorForm.valid">Sign Up</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
