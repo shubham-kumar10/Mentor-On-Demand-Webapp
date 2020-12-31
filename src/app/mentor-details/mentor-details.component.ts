@@ -18,6 +18,7 @@ export class MentorDetailsComponent implements OnInit {
   skills: Skill[]
   skillarray: any
   signUpDone: boolean
+  isMentor: boolean
   ngOnInit() {
     this.userService.getAllSkills().subscribe(
       data => this.skills = data

@@ -16,7 +16,7 @@ import { TrainingService } from '../services/training.service';
 export class InfoComponent implements OnInit {
 
   @Input() data: SkillDetails;
-  constructor(private authService: AuthService, private userService: UserService, private formBuild: FormBuilder, private trainingService: TrainingService) { }
+  constructor(public authService: AuthService, private userService: UserService, private formBuild: FormBuilder, private trainingService: TrainingService) { }
 
   ngOnInit() {
   }

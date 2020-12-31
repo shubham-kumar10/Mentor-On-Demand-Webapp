@@ -14,7 +14,7 @@ export class AppComponent {
     this.loggedIn();
     this.router.navigate(['/search']);
   }
-  constructor(private authService: AuthService, public router: Router) {
+  constructor(public authService: AuthService, public router: Router) {
   }
 
 
