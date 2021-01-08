@@ -13,7 +13,8 @@ import { SkillDetails } from '../Model/SkillDetails';
 })
 export class TrainingService {
 
-  trainingURL: string = environment.baseUrl + "training-service/";
+  // trainingURL: string = environment.baseUrl + "training-service/";
+  trainingURL: string = environment.baseUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

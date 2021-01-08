@@ -14,8 +14,12 @@ import { SkillDetails } from '../Model/SkillDetails';
 })
 export class MentorService {
 
-  searchUrl: string = environment.baseUrl + 'search-service';
-  mentorUrl: string = environment.baseUrl + 'mentor-service';
+  // searchUrl: string = environment.baseUrl + 'search-service';
+  // mentorUrl: string = environment.baseUrl + 'mentor-service';
+
+  searchUrl: string = environment.baseUrl;
+  mentorUrl: string = environment.baseUrl;
+
   userType: string;
   isMentor: boolean;
   mentorDTO: MentorDTO = null;
