@@ -9,21 +9,29 @@
         </div>
         <div class="d-flex flex-row">
             <div class="justify-content-start mr-auto">
-                <h6>Self Rating :&nbsp;{{data.self_rating}}</h6>
+                <h6><i class="material-icons">
+                        star_rate
+                    </i>:&nbsp;{{data.self_rating}}</h6>
             </div>
             <div class="justify-content-end ml-auto">
-                <h6>Years of Experience :&nbsp;{{data.yearsOfExperience}}</h6>
+                <h6><span class="material-icons">
+                        business_center
+                    </span> :&nbsp;{{data.yearsOfExperience}} Years</h6>
             </div>
         </div>
 
         <div class="d-flex flex-row">
             <div class="justify-content-start mr-auto">
-                <h6>Contact :&nbsp;{{data.mentor.user.contactNumber}}</h6>
+                <h6><span class="material-icons">
+                        perm_phone_msg
+                    </span> :&nbsp;{{data.mentor.user.contactNumber}}</h6>
             </div>
         </div>
         <div class="d-flex flex-row">
             <div class="justify-content-start mr-auto">
-                <h6>LinkedIn :&nbsp;{{data.mentor.linkedinUrl}}</h6>
+                <h6><span class="material-icons">
+                        engineering
+                    </span> :&nbsp;{{data.skill.name}}</h6>
             </div>
         </div>
         <div class="d-flex flex-row justify-content-between" *ngIf="authService.role">
