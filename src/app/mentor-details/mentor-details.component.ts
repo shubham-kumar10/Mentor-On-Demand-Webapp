@@ -36,12 +36,20 @@ export class MentorDetailsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
     this.skillsForm = this.formBuilder.group({
-      credentials: this.formBuilder.array([]),
+      skill: this.formBuilder.array([]),
     });
-
+    this.skill.push(this.formBuilder.group({
+      skill_id: '',
+      yearsOfExperience: '',
+      self_rating: '',
+    }))
   }
+
+  get skillform() { return this.skillsForm.controls; }
+  get skill() { return this.skillform.skill as FormArray; }
+
   addSkills() {
-    this.skillarray = this.skillsForm.controls.credentials as FormArray;
+    this.skillarray = this.skill as FormArray;
     this.skillarray.push(this.formBuilder.group({
       skill_id: '',
       yearsOfExperience: '',

@@ -32,7 +32,7 @@ export class MentorService {
   }
 
   getAllMentors(): Observable<any> {
-    return this._httpClient.get<any>(this.searchUrl + "/mentorList")
+    return this._httpClient.get<any>(this.searchUrl + "/mentors")
   }
 
   setMentorBySkill(id: number): Observable<any> {

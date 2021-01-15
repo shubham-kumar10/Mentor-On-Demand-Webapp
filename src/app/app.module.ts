@@ -12,6 +12,8 @@ import { SearchComponent } from './search/search.component';
 import { InfoComponent } from './info/info.component';
 import { MentorComponent } from './mentor/mentor.component';
 import { MentorEditComponent } from './mentor/mentor-edit/mentor-edit.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MentorEditComponent } from './mentor/mentor-edit/mentor-edit.component'
     SearchComponent,
     InfoComponent,
     MentorComponent,
-    MentorEditComponent
+    MentorEditComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

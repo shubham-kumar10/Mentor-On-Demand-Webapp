@@ -102,22 +102,22 @@ export class InfoComponent implements OnInit {
     this.trainingService.sendTrainingRequest(trainingDetails).subscribe(
       (data) => {
         window.alert("Your details are submitted successfully");
-      },
-      (error) => {
-        console.log(error);
-        if (error.error.message == "Start Date Coincides with an existing approved training of Mentor") {
-          this.errorMessage = "Start Date Coincides with an existing approved training of Mentor";
-        }
-        else if (error.error.message == "End Date Coincides with an existing approved training of Mentor") {
-          this.errorMessage = "End Date Coincides with an existing approved training of Mentor";
-        }
-        else if (error.error.message == "Start Date Coincides with an existing approved training of User") {
-          this.errorMessage = "Start Date Coincides with an existing approved training of User";
-        }
-        else if (error.error.message == "End Date Coincides with an existing approved training of User") {
-          this.errorMessage = "End Date Coincides with an existing approved training of User";
-        }
       }
+      // (error) => {
+      //   console.log(error);
+      //   if (error.error.message == "Start Date Coincides with an existing approved training of Mentor") {
+      //     this.errorMessage = "Start Date Coincides with an existing approved training of Mentor";
+      //   }
+      //   else if (error.error.message == "End Date Coincides with an existing approved training of Mentor") {
+      //     this.errorMessage = "End Date Coincides with an existing approved training of Mentor";
+      //   }
+      //   else if (error.error.message == "Start Date Coincides with an existing approved training of User") {
+      //     this.errorMessage = "Start Date Coincides with an existing approved training of User";
+      //   }
+      //   else if (error.error.message == "End Date Coincides with an existing approved training of User") {
+      //     this.errorMessage = "End Date Coincides with an existing approved training of User";
+      //   }
+      // }
     )
   }
 }

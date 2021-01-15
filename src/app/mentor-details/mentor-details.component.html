@@ -1,58 +1,53 @@
-<div class="container d-flex justify-content-center">
-    <div class="col-md-12 mt-6">
-        <div class="card mt-5">
-            <form class="m-3" [formGroup]="mentorForm" (submit)="addMentorDetails()">
-                <div class="row">
-                    <h2 class="col-lg-12 mb-4">Enter Additional Details</h2>
-                    <div class="col-lg-6">
-                        <label for="linkedInUrl">LinkedIn URL</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter LinkedIn URL"
-                            formControlName="linkedInUrl" id="linkedInUrl">
-
-                    </div>
-
-                    <div class="col-lg-6">
-                        <label for="yearsOfExperience">yearsOfExperience (Years)</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2"
-                            placeholder="Enter Your yearsOfExperience In Years" formControlName="yearsOfExperience"
-                            id="yearsOfExperience">
-                    </div>
-                    <form [formGroup]="skillsForm">
-
-                        <h2 class="col-lg-12 mb-4" *ngIf="signUpDone">Enter Your Skills</h2>
-                        <div class="col-lg-4">
-                            <button (click)="addSkills()">Add</button>
-                        </div>
-                        <!-- <div formArrayName="credentials" class="m-3">
-
-                            <div *ngFor="let creds of skillsForm.get('credentials').controls; let i = index"
-                                [formGroupName]="i" style="display: flex">
-                                <select class="form-control col-6" formControlName="skill_id">
-                                    <option *ngFor="let option of skills" value="{{option.id}}">
-                                        {{option.name}}
-                                    </option>
-                                </select>
-
-                                <div class="col-lg-6">
-                                    <input type="text" class="form-control mb-2 mr-sm-2"
-                                        placeholder="Enter Your yearsOfExperience In Years"
-                                        formControlName="yearsOfExperience" id="yearsOfExperience">
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Rate Yourself"
-                                        formControlName="self_rating" id="self_rating">
-                                </div>
-
-                            </div>
-                        </div> -->
-                    </form>
-                </div>
-                <div class="col-lg-12 mt-3" *ngIf="!isMentor">
-                    <button type="submit" class="btn add-to-favorites float-left" [disabled]="!mentorForm.valid">Sign
-                        Up</button>
-                </div>
-            </form>
+<div class="container">
+    <form (submit)="addMentorDetails()">
+        <div class="row">
+            <h2 class="col-12 mb-4">Tell us about your self</h2>
         </div>
-    </div>
+        <form [formGroup]="mentorForm">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <label for="linkedInUrl">LinkedIn Profile URL</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter LinkedIn URL"
+                        formControlName="linkedInUrl" id="linkedInUrl" />
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <label for="yearsOfExperience">Years of Experience</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2"
+                        placeholder="Enter Your yearsOfExperience In Years" formControlName="yearsOfExperience"
+                        id="yearsOfExperience" />
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <h2 class="col-12 mb-4">Enter Your Skills</h2>
+        </div>
+        <form [formGroup]="skillsForm">
+            <div *ngFor="let skill of skill.controls; let i = index;" class="row" [formGroup]="skill">
+                <div class="col-3">
+                    <select class="form-control col-6" formControlName="skill_id">
+                        <option *ngFor="let option of skills" value="{{option.id}}">
+                            {{option.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control mb-2 mr-sm-2"
+                        placeholder="Enter Your yearsOfExperience In Years" formControlName="yearsOfExperience"
+                        id="yearsOfExperience">
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Rate Yourself"
+                        formControlName="self_rating" id="self_rating">
+                </div>
+                <div class="col3">
+                    <button class="btn btn-primary" (click)="addSkills()">Add</button>
+                </div>
+            </div>
+        </form>
+        <div class="col-lg-12 mt-3" *ngIf="!isMentor">
+            <button type="submit" class="btn btn-primary" [disabled]="!mentorForm.valid">
+                Update
+            </button>
+        </div>
+    </form>
 </div>
