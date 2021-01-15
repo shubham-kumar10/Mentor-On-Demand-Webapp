@@ -13,14 +13,15 @@ import { SkillDetails } from '../Model/SkillDetails';
 })
 export class TrainingService {
 
-  trainingURL: string = environment.baseUrl + "training-service/";
+  // trainingURL: string = environment.baseUrl + "training-service/";
+  trainingURL: string = environment.baseUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   sendTrainingRequest(training: Training): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Bearer ' + this.authService.getToken());
-    return this.http.post(this.trainingURL + "addTrainingRequest/", training, { headers });
+    return this.http.post(this.trainingURL + "/addTrainingRequest/", training, { headers });
   }
 
   getIncompleteTrainingObservable(): Observable<any> {

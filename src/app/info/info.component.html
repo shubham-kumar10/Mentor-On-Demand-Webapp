@@ -33,7 +33,7 @@
                     <i class="material-icons md-16">edit</i>&nbsp;Propose Training
                 </button>
                 <form class="col-12" [formGroup]="trainingForm"
-                    (submit)="this.submitRequestTraining(trainingForm.value,data)" *ngIf="mentorId == data.mentor.id">
+                    (submit)="submitRequestTraining(trainingForm.value,data)" *ngIf="mentorId == data.mentor.id">
                     <div *ngIf="this.errorMessage!=null" class="alert-warning">
                         {{this.errorMessage}}
                     </div>

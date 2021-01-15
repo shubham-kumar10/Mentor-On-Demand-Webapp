@@ -15,9 +15,11 @@ export class AuthService {
   validCredentials: boolean = true;
   accessToken: string; // JWT token
   loggedIn: boolean = false;
-  //private authenticationApiUrl = environment.baseUrl;
-  private authenticationApiUrl = environment.baseUrl + 'auth-service/';
-  userUrl = environment.baseUrl + 'student-service/'
+  private authenticationApiUrl = environment.baseUrl;
+  // private authenticationApiUrl = environment.baseUrl + 'auth-service/';
+  // userUrl = environment.baseUrl + 'student-service/'
+  userUrl = environment.baseUrl
+
   private token: string;
   username: string;
   firstname: string;
@@ -35,7 +37,7 @@ export class AuthService {
   authenticate(user: string, password: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Basic ' + btoa(user + ':' + password));
-    return this._httpClient.get(this.authenticationApiUrl + "authenticate", { headers })
+    return this._httpClient.get(this.authenticationApiUrl + "/authenticate", { headers })
   }
 
   logout() {

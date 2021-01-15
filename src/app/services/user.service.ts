@@ -13,7 +13,9 @@ import { MentorDTO } from '../Model/MentorDTO';
 })
 export class UserService {
 
-  url: string = environment.baseUrl + 'user-service';
+  // url: string = environment.baseUrl + 'user-service';
+  url: string = environment.baseUrl;
+
   userType: string;
   isMentor: boolean;
   mentorDTO: MentorDTO = null;
